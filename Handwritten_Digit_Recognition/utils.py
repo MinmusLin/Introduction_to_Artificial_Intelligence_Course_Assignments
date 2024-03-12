@@ -62,7 +62,7 @@ def visualize_prediction_results(model, test_loader):
         for j in range(10):
             index = i * 10 + j
             axes[i, j].imshow(selected_images[index][0], cmap='gray')
-            axes[i, j].set_title(f"{selected_labels[index]}, {predicted_labels[index]}", fontsize=12, pad=4)
+            axes[i, j].set_title(f'{selected_labels[index]}, {predicted_labels[index]}', fontsize=12, pad=4)
             axes[i, j].axis('off')
 
     plt.tight_layout()
@@ -92,7 +92,7 @@ def visualize_incorrect_predictions(model, test_loader):
     for i, (image, label, pred) in enumerate(incorrect_samples):
         ax = axes[i // 5, i % 5]
         ax.imshow(image.squeeze(), cmap='gray')
-        ax.set_title(f"Label: {label}, Predicted: {pred}", fontsize=12, pad=4)
+        ax.set_title(f'Label: {label}, Prediction: {pred}', fontsize=10, pad=4)
         ax.axis('off')
 
     plt.tight_layout()
