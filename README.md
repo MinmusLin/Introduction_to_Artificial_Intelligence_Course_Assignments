@@ -15,6 +15,9 @@ A collection of my introduction to artificial intelligence course assignments.
 
 ## 仓库组成
 
+* [MNIST Handwritten Digit Recognition Based on CNN](MNIST_Handwritten_Digit_Recognition_Based_on_CNN)
+基于卷积神经网络的MNIST手写数字识别
+
 ## 文档更新日期
 
-2024年3月12日
+2024年3月14日
