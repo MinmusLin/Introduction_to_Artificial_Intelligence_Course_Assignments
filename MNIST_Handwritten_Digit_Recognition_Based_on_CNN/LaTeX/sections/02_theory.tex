@@ -1,0 +1,57 @@
+\section{实验原理}\label{sec:theory}
+
+\subsection{CNN（卷积神经网络）}
+
+卷积神经网络（Convolutional Neural Network，CNN）是一种深度学习模型，专门用于处理具有网格结构的数据，如图像。CNN在图像识别任务中表现出色，因其能够自动学习图像中的特征而广受欢迎。下面是本实验中使用的CNN结构，共有421642个参数。
+
+\subsubsection{卷积层（Convolutional Layer）}
+
+卷积层是CNN的核心组件之一。它通过在图像上滑动卷积核（filter）来提取图像的特征。每个卷积核都包含一组权重，可以学习不同的特征模式。本实验中，我们定义了两个卷积层：
+
+第一个卷积层：输入通道为1（灰度图像），输出通道为32，卷积核大小为3x3。
+
+第二个卷积层：输入通道为32，输出通道为64，卷积核大小为3x3。
+
+\subsubsection{池化层（Pooling Layer）}
+
+池化层用于减少卷积层输出的空间维度，同时保留重要信息。在本实验中，我们采用最大池化（Max Pooling）操作，将每个2x2的区域中的最大值作为输出。
+
+\subsubsection{全连接层（Fully Connected Layer）}
+
+全连接层用于将卷积层输出的特征图转换为分类结果。在本实验中，我们定义了两个全连接层：
+
+第一个全连接层：输入特征维度为64x7x7（64个通道，每个通道大小为7x7），输出维度为128。
+
+第二个全连接层：输入维度为128，输出维度为10（对应10个数字类别）。
+
+\subsection{损失函数与优化器}
+
+在训练CNN模型时，需要定义损失函数来衡量模型输出与真实标签之间的差距，并使用优化器来更新模型参数以最小化损失函数。在本实验中，我们采用以下损失函数和优化器：
+
+损失函数：交叉熵损失函数（Cross Entropy Loss），用于多分类问题的损失计算。
+
+优化器：Adam优化器，一种自适应学习率的优化算法，用于更新模型参数。
+
+\begin{listing}[htbp]
+  \begin{minted}{python}
+class CNNModel(nn.Module):
+    def __init__(self):
+        super(CNNModel, self).__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.fc1 = nn.Linear(64 * 7 * 7, 128)
+        self.fc2 = nn.Linear(128, 10)
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = x.view(-1, 64 * 7 * 7)
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return F.log_softmax(x, dim=1)
+model = CNNModel()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-5)
+  \end{minted}
+  \caption{卷积神经网络模型定义代码段}
+\end{listing}
