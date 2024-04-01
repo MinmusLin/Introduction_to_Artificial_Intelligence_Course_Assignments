@@ -7,14 +7,14 @@
   \centering
   \begin{tabular}{ccc} \toprule
     \textbf{网络层} & \textbf{数据维度} & \textbf{参数量} \\ \midrule
-    输入 & 28×28×3 & 0 \\
-    CONV 3-16 & 28×28×16 & 448 \\
+    输入层 & 28×28×3 & 0 \\
+    CONV 3-16 & 28×28×16 & 448 (weights: 432, biases: 16) \\
     Leaky ReLU (after CONV 3-16) & 28×28×16 & 0 \\
     POOL-2 (after CONV 3-16) & 14×14×16 & 0 \\
-    CONV 3-32 & 14×14×32 & 4640 \\
+    CONV 3-32 & 14×14×32 & 4640 (weights: 4608, biases: 32) \\
     Leaky ReLU (after CONV 3-32) & 14×14×32 & 0 \\
     POOL-2 (after CONV 3-32) & 7×7×32 & 0 \\
     FLATTEN & 1×1×1568 & 0 \\
-    FC-10 & 1×1×10 & 15690 \\ \bottomrule
+    FC-10 & 1×1×10 & 15690 (weights: 15680, biases: 10) \\ \bottomrule
   \end{tabular}
 \end{table}
