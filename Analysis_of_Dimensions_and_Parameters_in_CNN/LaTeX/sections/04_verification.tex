@@ -1,0 +1,50 @@
+\section{结果验证}\label{sec:verification}
+
+通过\cref{code_define}定义CNN模型，并通过\cref{code_print}打印CNN模型参数量，可以得到以下输出结果，结果验证正确。
+
+\begin{listing}[htbp]
+	\begin{minted}{text}
+conv1.weight has 432 parameters
+conv1.bias has 16 parameters
+conv2.weight has 4608 parameters
+conv2.bias has 32 parameters
+fc.weight has 15680 parameters
+fc.bias has 10 parameters
+total parameters: 20778
+	\end{minted}
+\end{listing}
+
+\begin{listing}[htbp]
+  \begin{minted}{python}
+class MyCNN(nn.Module):
+    def __init__(self):
+        super(MyCNN, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(in_channels=16, out_channels=32, kernel_size=3, padding=1)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.fc = nn.Linear(in_features=7 * 7 * 32, out_features=10)
+
+    def forward(self, x):
+        x = F.leaky_relu(self.conv1(x))
+        x = self.pool(x)
+        x = F.leaky_relu(self.conv2(x))
+        x = self.pool(x)
+        x = torch.flatten(x, 1)
+        x = self.fc(x)
+        return x
+  \end{minted}
+  \caption{定义CNN模型代码段}\label{code_define}
+\end{listing}
+
+\begin{listing}[htbp]
+	\begin{minted}{python}
+total_params = 0
+for name, parameter in model.named_parameters():
+    if not parameter.requires_grad: continue
+    param = parameter.numel()
+    print(f'{name} has {param} parameters')
+    total_params += param
+print(f'total parameters: {total_params}')
+	\end{minted}
+	\caption{打印CNN模型参数量代码段}\label{code_print}
+\end{listing}

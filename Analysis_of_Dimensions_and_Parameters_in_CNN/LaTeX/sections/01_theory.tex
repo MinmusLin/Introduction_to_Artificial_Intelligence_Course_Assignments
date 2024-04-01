@@ -1,0 +1,48 @@
+\section{分析原理}\label{sec:theory}
+
+\subsection{卷积层（CONV k-N）}
+
+卷积层通过在输入数据上滑动多个卷积核（或过滤器）来提取特征。每个卷积核负责学习输入数据的一种特征。
+
+$k$表示卷积核的大小（高度和宽度），$N$表示卷积核的数量。每个卷积核有$k \times k \times C_{in}$个权重参数，其中$C_{in}$是输入通道数。加上偏置项（每个卷积核一个），总参数量为$((k \times k \times C_in)+1) \times N$。
+
+当使用$padding=1$和$stride=1$时，输出高度和宽度与输入相同，输出通道数为卷积核数量$N$。因此，输出维度是$H \times W \times N$。
+
+\subsection{池化层（POOL-n）}
+
+池化层用于降低特征图的空间尺寸（高度和宽度），以减少计算量并防止过拟合。
+
+池化层没有参数。
+
+使用$n \times n$的窗口和$stride=n$（通常没有$padding$），输出的高度和宽度是输入的$1/n$，输出通道数不变。输出维度是$H/n \times W/n \times C$。
+
+\subsection{全连接层（FC-N）}
+
+全连接层将学习到的“特征”表示映射到最终的输出，如分类标签。每个输入节点都连接到输出节点。
+
+如果输入被展平为$D$个元素，输出为$N$个节点，则参数量为$(D+1) \times N$，其中$+1$代表偏置项。
+
+输出是一个$N$维向量，因此维度为$1 \times 1 \times N$。
+
+\subsection{Leaky ReLU}
+
+Leaky ReLU（Leaky Rectified Linear Unit）是ReLU激活函数的一个变种，允许小的梯度值流过，防止神经元完全死亡。其公式为
+$
+f(x) = \begin{cases} 
+	x & \text{if } x > 0 \\
+	\alpha x & \text{otherwise}
+\end{cases}
+$
+，其中$\alpha$是一个很小的常数。
+
+Leaky ReLU没有参数。
+
+不改变输入的尺寸，因此输出维度与输入维度相同。
+
+\subsection{FLATTEN}
+
+Flatten层将多维的输入展平为一维，通常用在卷积层和全连接层之间。
+
+Flatten层没有参数。
+
+如果输入维度是$H \times W \times C$，输出维度为$1 \times 1 \times (H \times W \times C)$。

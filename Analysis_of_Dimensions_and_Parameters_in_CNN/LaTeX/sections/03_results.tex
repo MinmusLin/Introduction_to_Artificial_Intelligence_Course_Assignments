@@ -1,0 +1,19 @@
+\section{分析结果}\label{sec:results}
+
+以下是卷积神经网络各层的数据维度和参数量。
+
+\begin{table}[!hpt]
+  \caption{卷积神经网络各层的数据维度和参数量}
+  \centering
+  \begin{tabular}{ccc} \toprule
+    \textbf{网络层} & \textbf{数据维度} & \textbf{参数量} \\ \midrule
+    CONV 3-16 & 28×28×16 & 448 \\
+    Leaky ReLU (after CONV 3-16) & 28×28×16 & 0 \\
+    POOL-2 (after CONV 3-16) & 14×14×16 & 0 \\
+    CONV 3-32 & 14×14×32 & 4640 \\
+    Leaky ReLU (after CONV 3-32) & 14×14×32 & 0 \\
+    POOL-2 (after CONV 3-32) & 7×7×32 & 0 \\
+    FLATTEN & 1×1×1568 & 0 \\
+    FC-10 & 1×1×10 & 15690 \\ \bottomrule
+  \end{tabular}
+\end{table}

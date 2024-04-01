@@ -1,0 +1,13 @@
+\section{分析过程}\label{sec:process}
+
+\begin{enumerate}
+  \item 输入层：数据维度是$28 \times 28 \times 3$，没有参数。
+  \item CONV 3-16：数据维度不变为$28 \times 28 \times 16$。参数量为$((3 \times 3 \times 3)+1) \times 16 = 448$。
+  \item Leaky ReLU：这是一个激活函数，不改变数据维度，也没有参数，维度保持$28 \times 28 \times 16$。
+  \item POOL-2：数据维度变为$14 \times 14 \times 16$，没有参数。
+  \item CONV 3-32：数据维度保持为$14 \times 14 \times 32$。参数量为$((3 \times 3 \times 16)+1) \times 32 = 4640$。
+  \item Leaky ReLU：同上，数据维度保持$14 \times 14 \times 32$，没有参数。
+  \item POOL-2：数据维度变为$7 \times 7 \times 32$，没有参数。
+  \item FLATTEN：数据被展平为一维向量，维度变为$1 \times 1 \times (7 \times 7 \times 32) = 1 \times 1 \times 1568$。
+  \item FC-10：数据维度变为$1 \times 1 \times 10$。参数量为$(1568+1) \times 10 = 15690$。
+\end{enumerate}
