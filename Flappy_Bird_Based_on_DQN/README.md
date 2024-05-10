@@ -10,6 +10,8 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
 
 强化学习实验：基于 Deep Q-Network 的 Flappy Bird 游戏。
 
+![](assets/model_2000000.gif)
+
 ## 项目组成
 
 * `/assets`
@@ -131,6 +133,35 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
   tensorboard --logdir=tensorboard
   ```
 
+## 不同迭代次数表现
+
+<p align="center">
+  <img src="assets/model_100000.gif" width="19%">
+  <img src="assets/model_200000.gif" width="19%">
+  <img src="assets/model_300000.gif" width="19%">
+  <img src="assets/model_400000.gif" width="19%">
+  <img src="assets/model_500000.gif" width="19%">
+  <br>100,000 / 200,000 / 300,000 / 400,000 / 500,000 Iterations<br>
+  <img src="assets/model_600000.gif" width="19%">
+  <img src="assets/model_700000.gif" width="19%">
+  <img src="assets/model_800000.gif" width="19%">
+  <img src="assets/model_900000.gif" width="19%">
+  <img src="assets/model_100000.gif" width="19%">
+  <br>600,000 / 700,000 / 800,000 / 900,000 / 1,000,000 Iterations<br>
+  <img src="assets/model_1100000.gif" width="19%">
+  <img src="assets/model_1200000.gif" width="19%">
+  <img src="assets/model_1300000.gif" width="19%">
+  <img src="assets/model_1400000.gif" width="19%">
+  <img src="assets/model_1500000.gif" width="19%">
+  <br>1,100,000 / 1,200,000 / 1,300,000 / 1,400,000 / 1,500,000 Iterations<br>
+  <img src="assets/model_1600000.gif" width="19%">
+  <img src="assets/model_1700000.gif" width="19%">
+  <img src="assets/model_1800000.gif" width="19%">
+  <img src="assets/model_1900000.gif" width="19%">
+  <img src="assets/model_2000000.gif" width="19%">
+  <br>1,600,000 / 1,700,000 / 1,800,000 / 1,900,000 / 2,000,000 Iterations<br>
+</p>
+
 ## 文档更新日期
 
-2024年5月9日
+2024年5月10日
