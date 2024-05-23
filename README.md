@@ -24,6 +24,9 @@ A collection of my introduction to artificial intelligence course assignments.
 * [MNIST Handwritten Digit Recognition Based on CNN](MNIST_Handwritten_Digit_Recognition_Based_on_CNN)
 基于卷积神经网络的 MNIST 手写数字识别
 
+* [Tetris Based on DQN](Tetris_Based_on_DQN)
+强化学习实验：基于 Deep Q-Network 的俄罗斯方块游戏
+
 ## 文档更新日期
 
-2024年5月9日
+2024年5月23日
