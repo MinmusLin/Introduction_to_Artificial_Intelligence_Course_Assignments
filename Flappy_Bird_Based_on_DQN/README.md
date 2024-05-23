@@ -20,9 +20,6 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
 * `/models`
 模型文件
 
-  * `model`
-  训练模型
-
 * `/sprites`
 `Pygame` 资源文件
 
@@ -164,4 +161,4 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
 
 ## 文档更新日期
 
-2024年5月10日
+2024年5月23日
