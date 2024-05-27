@@ -35,9 +35,6 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
   * `utils.py`
   工具函数
 
-* `/tensorboard`
-日志文件
-
 * `test.py`
 模型测试脚本
 
@@ -104,10 +101,10 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
 
     ![](assets/2024-05-08_19-36-17.png)
 
-12. 安装相关包和依赖
+12. 安装 TensorBoard
 
     ```bash
-    pip install pygame opencv-python tensorboard tensorboardX
+    pip install tensorboard tensorboardX
     ```
 
 ## 项目运行
@@ -161,4 +158,4 @@ Reinforcement Learning Lab: Flappy Bird Game Based on Deep Q-Network.
 
 ## 文档更新日期
 
-2024年5月23日
+2024年5月27日
