@@ -35,4 +35,4 @@ A collection of my introduction to artificial intelligence course assignments.
 
 ## 文档更新日期
 
-2024年5月28日
+2024年5月29日
