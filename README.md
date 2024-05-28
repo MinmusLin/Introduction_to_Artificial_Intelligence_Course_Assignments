@@ -21,6 +21,9 @@ A collection of my introduction to artificial intelligence course assignments.
 * [Flappy Bird Based on DQN](Flappy_Bird_Based_on_DQN)
 强化学习实验：基于 Deep Q-Network 的 Flappy Bird 游戏
 
+* [Lunar Lander Based on DQN](Lunar_Lander_Based_on_DQN)
+强化学习实验：基于 Deep Q-Network 的月球着陆器
+
 * [MNIST Handwritten Digit Recognition Based on CNN](MNIST_Handwritten_Digit_Recognition_Based_on_CNN)
 基于卷积神经网络的 MNIST 手写数字识别
 
@@ -29,4 +32,4 @@ A collection of my introduction to artificial intelligence course assignments.
 
 ## 文档更新日期
 
-2024年5月23日
+2024年5月28日
